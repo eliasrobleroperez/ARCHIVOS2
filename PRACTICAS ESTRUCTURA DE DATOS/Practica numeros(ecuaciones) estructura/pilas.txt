@@ -1,0 +1,26 @@
+for(int i=0;i<capacidad;i++){
+            aux = i;
+            mayor = 0;
+            while(aux<capacidad){
+                numeroComparacion = pila1.pop();
+                if(numeroComparacion>mayor){
+                    mayor = numeroComparacion;
+                }
+                pila2.push(numeroComparacion);
+                aux++;
+            }
+        
+        pila1.push(mayor);
+
+        while(!pila2.isEmpty()){
+            numeroComparacion = pila2.pop();
+            if(numeroComparacion!=mayor){
+                pila1.push(numeroComparacion);
+            }
+        }
+        }
+        while(!pila1.isEmpty()){
+            lista.insertarAlInicio(pila1.pop());
+        }
+        System.out.println("\nA continuacion se presentan los numeros ordenados de mayor a menor: ");
+        lista.visualizar();

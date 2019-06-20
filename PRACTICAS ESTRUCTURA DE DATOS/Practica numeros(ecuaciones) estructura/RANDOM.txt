@@ -1,0 +1,28 @@
+Random r;
+        int d,k;
+        Lista lista;
+        r= new Random();
+        lista  = new Lista();   /*Se crea la lista vacia */
+        k = Math.abs(r.nextInt() % 11);     /* Numero de nodos a generar */
+        for(; k>0; k--){    /*Agregar a la lista*/
+            d = (r.nextInt() % 50);     /*Datos de los nodos*/
+            if(d)
+            cola.agregar(d);
+            lista.insertarAlInicio(d);
+        }
+        while(!pila1.isEmpty()){
+            numeroComparacion = pila1.pop();
+            if(numeroComparacion > mayor){
+                mayor = numeroComparacion;
+            }
+            if(numeroComparacion< menor){
+                menor = numeroComparacion;
+            }
+        }
+        pila2.push(menor);
+        pila2.push(mayor);
+        
+        System.out.println("\nElementos de la lista:");
+        lista.visualizar();
+        System.out.println("\nA continuacion se muestra el numero mayor y menor de la lista de numeros aleatorios: ");
+        lista.encontrarNumeroMayorYMenor();

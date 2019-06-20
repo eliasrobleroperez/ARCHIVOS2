@@ -1,0 +1,63 @@
+import java.io.*;
+public class ClaseMain{
+    public static void main(String[] args) throws IOException{
+        leerArchivo("prueba.txt");
+    }
+                                            //Excepcion que se ejecuta cuando no se encuentra el archivo
+        public static void leerArchivo(String nombreArchivo) throws FileNotFoundException, IOException {
+        String texto;
+        FileReader archivo = new FileReader(nombreArchivo);//Busca el archivo
+        BufferedReader contenedor = new BufferedReader(archivo);//Almacenar el contenido del archivo
+            while((texto = contenedor.readLine())!=null){//Leer linea por linea
+                    System.out.println(texto);//Imprimir linea
+            }
+            contenedor.close();
+
+        String archivoLeer;
+        FileReader archivo2 = new FileReader(nombreArchivo);
+        BufferedReader contenedor2 = new BufferedReader(archivo2);
+        archivoLeer=contenedor2.readLine();
+
+        String numeros1 = archivoLeer;
+        char[] letras = numeros1.toCharArray();
+        String n=" ";
+        for(int i=0;i<letras.length;i++){
+            if(Character.isDigit(letras[i])){
+            n =n+letras[i];}
+            else{
+                if(letras[0]=='x'){
+                    letras[0]=1;
+                }
+            }
+        }
+        System.out.println("Numero: "+n);
+
+        String cadena = n;
+        PilaOperaciones pila = new PilaOperaciones(100);
+        Lista lista = new Lista();
+        char[] cadenaSeparada = cadena.toCharArray();//Conviertes la cadena en arreglo de tipo char
+        int[] enEnteros = new int[cadenaSeparada.length];//Creas una de entero con la misma longitud
+        for (int i = 1; i < cadenaSeparada.length; i++) {
+        enEnteros[i] = Character.getNumericValue(cadenaSeparada[i]);//Conviertes el char en int
+         System.out.println(enEnteros[i]);
+         pila.push(enEnteros[i]);
+         
+        }
+        System.out.println("--------------------");
+        while(!pila.isEmpty()){
+        lista.insertarAlInicio(pila.pop());
+    }
+    lista.visualizar();
+        
+
+        
+        
+
+        
+        
+        
+        
+
+        }
+
+    }
